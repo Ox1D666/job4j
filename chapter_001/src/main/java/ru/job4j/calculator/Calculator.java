@@ -1,5 +1,12 @@
 package ru.job4j.calculator;
 
+/**
+ * Класс осуществляющий арифметические опреации.
+ * @author Admin
+ * @since 5.11.2019
+ * @version1
+ */
+
 public class Calculator {
     public static void add(double first, double second) {
         double result =  first + second;
