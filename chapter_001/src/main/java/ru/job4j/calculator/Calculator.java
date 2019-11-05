@@ -28,6 +28,11 @@ public class Calculator {
         System.out.println(first + "+" + second + " = " + result);
     }
 
+    /**
+     * Конструкторы, выполнение арифметических операций.
+     * @param args
+     */
+
     public static void main(String[] args) {
         add(1, 1);
         div(4,2);
