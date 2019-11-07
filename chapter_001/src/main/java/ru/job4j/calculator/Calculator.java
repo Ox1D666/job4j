@@ -8,28 +8,45 @@ package ru.job4j.calculator;
  */
 
 public class Calculator {
+    /**
+     * Метод выполняющий сложение двух чисел.
+     * @param first - первое число.
+     * @param  second - второе число.
+     */
     public static void add(double first, double second) {
         double result =  first + second;
         System.out.println(first + "+" + second + " = " + result);
     }
-
+    /**
+     * Метод выполняющий деление двух чисел.
+     * @param first - первое число.
+     * @param  second - второе число.
+     */
     public static void div(double first, double second) {
         double result =  first / second;
         System.out.println(first + "+" + second + " = " + result);
     }
-
+    /**
+     * Метод выполняющий умножение двух чисел.
+     * @param first - первое число.
+     * @param  second - второе число.
+     */
     public static void multiple(double first, double second) {
         double result =  first * second;
         System.out.println(first + "+" + second + " = " + result);
     }
-
+    /**
+     * Метод выполняющий вычитание одного числа из другого.
+     * @param first - первое число.
+     * @param  second - второе число.
+     */
     public static void subtrack(double first, double second) {
         double result =  first - second;
         System.out.println(first + "+" + second + " = " + result);
     }
 
     /**
-     * Конструкторы, выполнение арифметических операций.
+     * Передача значений параметров в методы выполняющие арифметические операции.
      * @param args
      */
 
