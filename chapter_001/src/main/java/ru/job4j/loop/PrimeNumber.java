@@ -4,9 +4,9 @@ public class PrimeNumber {
     public int calc(int finish) {
         int count = 0;
         for (int i = 2; i <= finish; i++) {
-            for (int j = 2; j <= i/2; j++) {
+            for (int j = 2; j <= i / 2; j++) {
                 int x = i % j;
-                if (x == 0){
+                if (x == 0) {
                     count--;
                     break;
                 }

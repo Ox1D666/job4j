@@ -13,11 +13,11 @@ public class Converter {
         return value * 70;
     }
 
-    public static int dollarToRuble (int value) {
+    public static int dollarToRuble(int value) {
         return value * 60;
     }
 
-    public static boolean test (int expected, int out) {
+    public static boolean test(int expected, int out) {
         boolean passed = expected == out;
         return passed;
     }
@@ -37,11 +37,11 @@ public class Converter {
         System.out.println("120 rubles are 2. Test result : " + passed2);
 
         int in3 = 50;
-        boolean test = test(3500,euroToRuble(in3));
+        boolean test = test(3500, euroToRuble(in3));
         System.out.println("50 euro are 3500. Test result : " + test);
 
         int in4 = 50;
-        boolean test1 = test(3000,dollarToRuble(in4));
+        boolean test1 = test(3000, dollarToRuble(in4));
         System.out.println("50 dollar are 3000. Test result : " + test1);
     }
 }

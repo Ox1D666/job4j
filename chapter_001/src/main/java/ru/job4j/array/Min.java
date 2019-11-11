@@ -5,7 +5,9 @@ public class Min {
         int min = array[0];
         for (int index = 0; index < array.length; index++) {
             boolean a = array[index] < min;
-            if (a) min = array[index];
+            if (a) {
+                min = array[index];
+            }
         }
         return min;
     }

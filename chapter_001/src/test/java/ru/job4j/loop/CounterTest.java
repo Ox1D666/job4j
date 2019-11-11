@@ -7,9 +7,9 @@ import static org.junit.Assert.assertThat;
 
 public class CounterTest {
     @Test
-    public void testLoop () {
+    public void testLoop() {
         Counter counter = new Counter();
-        int result = counter.add(0,10);
-        assertThat(result,is(30));
+        int result = counter.add(0, 10);
+        assertThat(result, is(30));
     }
 }
