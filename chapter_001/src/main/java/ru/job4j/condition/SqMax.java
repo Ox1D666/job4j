@@ -9,8 +9,6 @@ public class SqMax {
                     result = first;
                 }
             }
-        } else if (first < third) {
-            result = third;
         } else if (second > third) {
             if (second > forth) {
                 result = second;

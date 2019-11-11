@@ -5,6 +5,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class SqMaxTest {
+
     @Test
     public void checkMaxWhenForth() {
         int res = SqMax.max(1,2,3,4);
