@@ -5,6 +5,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class CheckTest {
+
     @Test
     public void whenDataMonoByTrueThenTrue() {
         Check check = new Check();
@@ -22,7 +23,7 @@ public class CheckTest {
     }
 
     @Test
-    public void whenDataMonoByTrueThenTrue2() {
+    public void whenDataMonoByFalseThenFalse() {
         Check check = new Check();
         boolean[] input = new boolean[] {false, false, false};
         boolean result = check.mono(input);
