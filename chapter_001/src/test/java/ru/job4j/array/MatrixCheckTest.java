@@ -24,8 +24,8 @@ public class MatrixCheckTest {
     public void whenDataMonoByTrueThenTrue2() {
         char[][] input = {
                 {'_', '_', '_', '_', '_'},
-                {'X', 'X', 'X', 'X', 'X'},
                 {'_', '_', '_', '_', '_'},
+                {'X', 'X', 'X', 'X', 'X'},
                 {'_', '_', '_', '_', '_'},
                 {'_', '_', '_', '_', '_'},
         };

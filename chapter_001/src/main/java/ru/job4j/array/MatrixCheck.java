@@ -2,30 +2,26 @@ package ru.job4j.array;
 
 public class MatrixCheck {
     public static boolean isWin(char[][] board) {
-        boolean result = false;
+        boolean result = true;
         for (int row = 0; row < board.length; row++) {
             for (int cell = 0; cell < board.length; cell++) {
                 char sign = board[row][cell];
-                System.out.print(sign);
-                if (sign == 'X' && cell == 0) {
-                    int count = 0;
-                    while (board[row][cell+1] == 'X') {
-                        count++;
-                        if (count == 4) {
-                            result = true;
+                if (sign == 'X') {
+                    if (cell == 4) {
+                        System.out.print("X");
+                        break;
+                    }
+                    if (sign != board[row][cell + 1]) {
+                        if (row == 4) {
+                            System.out.println("X__");
                             break;
                         }
-                    }
-                } else if (sign == 'X' && row == 0) {
-                    int count = 0;
-                    for (row = 0; board[row+1][cell] == 'X'; row++) {
-                        count++;
-                        if (count == 4) {
-                            result = true;
-                            break;
+                        if (sign != board[row + 1][cell]) {
+                            result = false;
                         }
                     }
                 }
+                System.out.print(sign);
             }
             System.out.println();
         }
