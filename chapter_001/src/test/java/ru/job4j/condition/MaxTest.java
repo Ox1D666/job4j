@@ -10,4 +10,9 @@ public class MaxTest {
         int result = Max.max(1, 2);
         assertThat(result, is(2));
     }
+    @Test
+    public void maxFourNum() {
+        int result = Max.max(8, 2,3,4);
+        assertThat(result, is(8));
+    }
 }
