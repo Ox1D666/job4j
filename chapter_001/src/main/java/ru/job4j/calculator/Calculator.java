@@ -6,7 +6,6 @@ package ru.job4j.calculator;
  * @since 5.11.2019
  * @version1
  */
-
 public class Calculator {
     /**
      * Метод выполняющий сложение двух чисел.
@@ -44,12 +43,10 @@ public class Calculator {
         double result =  first - second;
         System.out.println(first + "+" + second + " = " + result);
     }
-
     /**
      * Передача значений параметров в методы выполняющие арифметические операции.
      * @param args
      */
-
     public static void main(String[] args) {
         add(1, 1);
         div(4, 2);
