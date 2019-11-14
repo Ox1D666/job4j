@@ -8,25 +8,18 @@ public class Merge {
         int[] rsl = new int[left.length + right.length];
         int leftIndex = 0;
         int rightIndex = 0;
-        int i = 0;
-        while (i < rsl.length) {
-            if (left.length == 0) {
-                System.arraycopy(right, i, rsl, i, right.length);
-                break;
-            } else if (right.length == 0) {
-                System.arraycopy(left, i, rsl, i, left.length);
-                break;
-            }
-            rsl[i] = left[leftIndex] < right[rightIndex] ? left[leftIndex++] : right[rightIndex++];
+        while (leftIndex < left.length || rightIndex < right.length) {
             if (leftIndex == left.length) {
-                System.arraycopy(right, rightIndex, rsl, ++i, right.length - rightIndex);
-                break;
+                rsl[leftIndex + rightIndex] = right[rightIndex++];
+            } else if (rightIndex == right.length) {
+                rsl[leftIndex + rightIndex] = left[leftIndex++];
+            } else  {
+                if(left[leftIndex] <= right[rightIndex]) {
+                    rsl[leftIndex+rightIndex] = left[leftIndex++];
+                } else {
+                    rsl[leftIndex + rightIndex] = right[rightIndex];
+                }
             }
-            if (rightIndex == right.length) {
-                System.arraycopy(left, leftIndex, rsl, ++i, left.length - leftIndex);
-                break;
-            }
-            i++;
         }
         return rsl;
     }
