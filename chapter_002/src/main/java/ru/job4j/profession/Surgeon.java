@@ -6,5 +6,5 @@ public class Surgeon extends Doctor {
     public String getAccuracy() {
         return accuracy;
     }
-    private void makeCut() {}
+    private void makeCut() { }
 }

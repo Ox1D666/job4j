@@ -6,5 +6,5 @@ public class Dentist extends Doctor {
     public String getSpeed() {
         return speed;
     }
-    private void teethPullOut() {}
+    private void teethPullOut() { }
 }
