@@ -7,6 +7,10 @@ public class Tracker {
     private final Item[] items = new Item[100];
     private int position = 0;
 
+    public int getPosition() {
+        return position;
+    }
+
     public Item add(Item item) {
         item.setId(generateId());
         this.items[this.position++] = item;
@@ -16,9 +20,10 @@ public class Tracker {
     public boolean replace(String id, Item item) {
         boolean result = false;
         for (int i = 0; i < this.position; i++) {
-            if (item.getId().equals(id)) {
+            if (items[i].getId().equals(id)) {
                 items[i] = item;
                 result = true;
+                item.setId(id);
                 break;
             }
         }
