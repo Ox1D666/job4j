@@ -1,6 +1,13 @@
 package ru.job4j.tracker;
 
 public class StartUI {
+    private static final int ADD = 1;
+    private static final int SHOW = 2;
+    private static final int EDIT = 3;
+    private static final int DEL = 4;
+    private static final int FINDID = 5;
+    private static final int FINDNAME = 6;
+    private static final int EXIT = 7;
 
     public static void createItem(Input input, Tracker tracker) {
         tracker.add(new Item(input.askStr("Enter name: ")));
@@ -12,7 +19,7 @@ public class StartUI {
         }
     }
     public static void replaceItem(Input input, Tracker tracker) {
-        tracker.replace(input.askStr("Enter d selected item:"),
+        tracker.replace(input.askStr("Enter id selected item:"),
                 new Item(input.askStr("Enter new name:")));
     }
     public static void deleteItem(Input input, Tracker tracker) {
