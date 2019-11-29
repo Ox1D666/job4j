@@ -47,19 +47,19 @@ public class StartUI {
         while (run) {
             this.showMenu();
             int select = input.askInt("Select:");
-            if (select == 0) {
+            if (select == ADD) {
                 StartUI.createItem(input, tracker);
-            } else if (select == 1) {
+            } else if (select == SHOW) {
                 StartUI.createAList(input, tracker);
-            } else if (select == 2) {
+            } else if (select == EDIT) {
                 StartUI.replaceItem(input, tracker);
-            } else if (select == 3) {
+            } else if (select == DEL) {
                 StartUI.deleteItem(input, tracker);
-            } else if (select == 4) {
+            } else if (select == FINDID) {
                 StartUI.findItemById(input, tracker);
-            } else if (select == 5) {
+            } else if (select == FINDNAME) {
                 StartUI.findItemByName(input, tracker);
-            } else if (select == 6) {
+            } else if (select == EXIT) {
                 run = false;
             }
         }
