@@ -66,9 +66,14 @@ public class StartUI {
     }
 
     private void showMenu() {
-        System.out.println("Menu\n0. Add new item\n1. Show all items\n2. Edit item\n" +
-                "3. Delete item\n4. Find item by Id\n5. Find item by name\n" +
-                "6. Exit Program\n");
+        System.out.println("0. Add new item");
+        System.out.println("1. Show all items");
+        System.out.println("2. Edit item");
+        System.out.println("3. Delete item");
+        System.out.println("4. Find item by Id");
+        System.out.println("5. Find item by name");
+        System.out.println("6. Exit Program");
+
     }
 
     public static void main(String[] args) {
