@@ -19,11 +19,15 @@ public class StartUI {
         }
     }
     public static void replaceItem(Input input, Tracker tracker) {
-        tracker.replace(input.askStr("Enter id selected item:"),
-                new Item(input.askStr("Enter new name:")));
+        if (tracker.replace(input.askStr("Enter id selected item:"),
+                new Item(input.askStr("Enter new name:")))) {
+            System.out.println("success");
+        } else System.out.println("false");
     }
     public static void deleteItem(Input input, Tracker tracker) {
-        tracker.delete(input.askStr("Enter id selected item:"));
+        if (tracker.delete(input.askStr("Enter id selected item:"))) {
+            System.out.println("success");
+        } else System.out.println("false");
     }
     public static void findItemById(Input input, Tracker tracker) {
         String id = input.askStr("Enter id selected item:");
@@ -62,7 +66,7 @@ public class StartUI {
     }
 
     private void showMenu() {
-        System.out.println("||Menu||\n0. Add new Item\n1. Show all items\n2. Edit item\n" +
+        System.out.println("Menu\n0. Add new item\n1. Show all items\n2. Edit item\n" +
                 "3. Delete item\n4. Find item by Id\n5. Find item by name\n" +
                 "6. Exit Program\n");
     }

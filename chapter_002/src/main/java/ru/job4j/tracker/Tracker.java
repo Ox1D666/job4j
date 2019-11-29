@@ -24,9 +24,8 @@ public class Tracker {
                 items[i] = item;
                 result = true;
                 item.setId(id);
-                System.out.println("success");
                 break;
-            } else System.out.println("false");
+            }
         }
         return result;
     }
@@ -39,9 +38,8 @@ public class Tracker {
                 System.arraycopy(items, 1 + i, items, i , this.position);
                 this.position--;
                 result = true;
-                System.out.println("success");
                 break;
-            } else System.out.println("false");
+            }
         }
         return result;
     }
