@@ -13,16 +13,15 @@ public class StartUI {
         tracker.add(new Item(input.askStr("Enter name: ")));
     }
 
-    public static void createAList(Input input, Tracker tracker) {
+    public static void createAList(Tracker tracker) {
         Item[] items = tracker.findAll();
-        for (int i = 0; i < tracker.getPosition(); i++) {
+        for (int i = 0; i < items.length; i++) {
             System.out.println(items[i].getId() + " " + items[i].getName());
         }
     }
 
     public static void replaceItem(Input input, Tracker tracker) {
-        if (tracker.replace(input.askStr("Enter id selected item:"),
-                new Item(input.askStr("Enter new name:")))) {
+        if (tracker.replace(input.askStr("Enter id selected item:"), new Item(input.askStr("Enter new name:")))) {
             System.out.println("success");
         } else System.out.println("false");
     }
@@ -43,7 +42,7 @@ public class StartUI {
 
     public static void findItemByName(Input input, Tracker tracker) {
         Item[] items = tracker.findByName(input.askStr("Enter name selected item:"));
-        for (int i = 0; i < tracker.getPosition(); i++) {
+        for (int i = 0; i < items.length; i++) {
             System.out.println(items[i].getId() + " " + items[i].getName());
         }
     }
@@ -56,7 +55,7 @@ public class StartUI {
             if (select == ADD) {
                 StartUI.createItem(input, tracker);
             } else if (select == SHOW) {
-                StartUI.createAList(input, tracker);
+                StartUI.createAList(tracker);
             } else if (select == EDIT) {
                 StartUI.replaceItem(input, tracker);
             } else if (select == DEL) {
@@ -72,13 +71,13 @@ public class StartUI {
     }
 
     private void showMenu() {
-        System.out.println("0. Add new item");
-        System.out.println("1. Show all items");
-        System.out.println("2. Edit item");
-        System.out.println("3. Delete item");
-        System.out.println("4. Find item by Id");
-        System.out.println("5. Find item by name");
-        System.out.println("6. Exit Program");
+        System.out.println("1. Add new item");
+        System.out.println("2. Show all items");
+        System.out.println("3. Edit item");
+        System.out.println("4. Delete item");
+        System.out.println("5. Find item by Id");
+        System.out.println("6. Find item by name");
+        System.out.println("7. Exit Program");
 
     }
 

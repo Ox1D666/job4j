@@ -7,10 +7,6 @@ public class Tracker {
     private final Item[] items = new Item[100];
     private int position = 0;
 
-    public int getPosition() {
-        return position;
-    }
-
     public Item add(Item item) {
         item.setId(generateId());
         this.items[this.position++] = item;
