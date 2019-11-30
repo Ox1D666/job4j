@@ -12,36 +12,42 @@ public class StartUI {
     public static void createItem(Input input, Tracker tracker) {
         tracker.add(new Item(input.askStr("Enter name: ")));
     }
+
     public static void createAList(Input input, Tracker tracker) {
         Item[] items = tracker.findAll();
-        for(int i = 0; i < tracker.getPosition(); i++) {
+        for (int i = 0; i < tracker.getPosition(); i++) {
             System.out.println(items[i].getId() + " " + items[i].getName());
         }
     }
+
     public static void replaceItem(Input input, Tracker tracker) {
         if (tracker.replace(input.askStr("Enter id selected item:"),
                 new Item(input.askStr("Enter new name:")))) {
             System.out.println("success");
         } else System.out.println("false");
     }
+
     public static void deleteItem(Input input, Tracker tracker) {
         if (tracker.delete(input.askStr("Enter id selected item:"))) {
             System.out.println("success");
         } else System.out.println("false");
     }
+
     public static void findItemById(Input input, Tracker tracker) {
         String id = input.askStr("Enter id selected item:");
-        if (id != null) {
-            Item item = tracker.findById(id);
+        Item item = tracker.findById(id);
+        if(item != null) {
             System.out.println(item.getId() + " " + item.getName());
         }
     }
+
     public static void findItemByName(Input input, Tracker tracker) {
         Item[] items = tracker.findByName(input.askStr("Enter name selected item:"));
-        for(int i = 0; i < tracker.getPosition(); i++) {
+        for (int i = 0; i < tracker.getPosition(); i++) {
             System.out.println(items[i].getId() + " " + items[i].getName());
         }
     }
+
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
