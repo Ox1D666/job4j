@@ -19,6 +19,13 @@ public class StartUITest {
 
     @Test
     public void whenCreateItem() {
-
+/*        String[] answers = {"Fix PC"}; //иммитируем пользовательский ввод при создании таска
+        String[] answers2 = {"Fix router"};
+        Input input = new StubInput(answers); // запросили имя у пользователя, получаем answers
+        Input input1 = new StubInput(answers2);
+        Tracker tracker = new Tracker();
+        StartUI.createItem(input,tracker); // создали новый таск
+        Item created = tracker.findAll()[0];
+        StartUI.replaceItem(input1.);*/
     }
 }
