@@ -38,7 +38,7 @@ public class StartUI {
         Item item = tracker.findById(id);
         if(item != null) {
             System.out.println(item.getId() + " " + item.getName());
-        }
+        } else System.out.println("item with entered id not found");
     }
 
     public static void findItemByName(Input input, Tracker tracker) {
