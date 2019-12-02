@@ -62,6 +62,6 @@ public class TrackerTest {
         Item[] expect = new Item[2];
         expect[0] = item1;
         expect[1] = item2;
-        assertThat(tracker.findAll(), is (expect));
+        assertThat(tracker.findAll(), is(expect));
     }
 }

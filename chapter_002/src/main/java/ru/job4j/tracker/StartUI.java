@@ -23,21 +23,27 @@ public class StartUI {
     public static void replaceItem(Input input, Tracker tracker) {
         if (tracker.replace(input.askStr("Enter id selected item:"), new Item(input.askStr("Enter new name:")))) {
             System.out.println("success");
-        } else System.out.println("false");
+        } else {
+            System.out.println("false");
+        }
     }
 
     public static void deleteItem(Input input, Tracker tracker) {
         if (tracker.delete(input.askStr("Enter id selected item:"))) {
             System.out.println("success");
-        } else System.out.println("false");
+        } else {
+            System.out.println("false");
+        }
     }
 
     public static void findItemById(Input input, Tracker tracker) {
         String id = input.askStr("Enter id selected item:");
         Item item = tracker.findById(id);
-        if(item != null) {
+        if (item != null) {
             System.out.println(item.getId() + " " + item.getName());
-        } else System.out.println("item with entered id not found");
+        } else {
+            System.out.println("item with entered id not found");
+        }
     }
 
     public static void findItemByName(Input input, Tracker tracker) {
