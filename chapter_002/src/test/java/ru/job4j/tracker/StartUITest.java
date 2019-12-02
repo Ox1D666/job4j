@@ -8,9 +8,9 @@ import static org.junit.Assert.*;
 public class StartUITest {
     @Test
     public void whenAddItem() {
+        Tracker tracker = new Tracker();
         String[] answers = {"Fix PC"};
         Input input = new StubInput(answers);
-        Tracker tracker = new Tracker();
         StartUI.createItem(input, tracker);
         Item created = tracker.findAll()[0];
         Item expected = new Item("Fix PC");
@@ -27,5 +27,17 @@ public class StartUITest {
         StartUI.replaceItem(input, tracker);
         Item created = tracker.findById(item.getId());
         assertThat(created.getName(), is("Fix tel"));
+    }
+
+    @Test
+    public void whenDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Fix PC");
+        tracker.add(item);
+        String[] answers = {item.getId()};
+        Input input = new StubInput(answers);
+        StartUI.deleteItem(input, tracker);
+        Item deleted = tracker.findById(item.getId());
+        assertThat(deleted, is (tracker.findById(null)));
     }
 }
