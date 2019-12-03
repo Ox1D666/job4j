@@ -1,18 +1,11 @@
 package ru.job4j.tracker;
 
 public class StartUI {
-    private static final int ADD = 1;
-    private static final int SHOW = 2;
-    private static final int EDIT = 3;
-    private static final int DEL = 4;
-    private static final int FINDID = 5;
-    private static final int FINDNAME = 6;
-    private static final int EXIT = 7;
 
     private void showMenu(UserAction[] actions) {
         System.out.println("Menu");
-        for (int i = 1; i <= actions.length; i++) {
-            System.out.println(i + actions[i].name());
+        for (int i = 0; i < actions.length; i++) {
+            System.out.println(i + " " + actions[i].name());
         }
     }
 
