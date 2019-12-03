@@ -9,6 +9,23 @@ public class StartUI {
     private static final int FINDNAME = 6;
     private static final int EXIT = 7;
 
+    private void showMenu(UserAction[] actions) {
+        System.out.println("Menu");
+        for (int i = 1; i <= actions.length; i++) {
+            System.out.println(i + actions[i].name());
+        }
+    }
+
+    public void init(Input input, Tracker tracker, UserAction[] actions) {
+        boolean run = true;
+        while (run) {
+            this.showMenu(actions);
+            int select = input.askInt("Select:");
+            UserAction action = actions[select];
+            run = action.execute(input, tracker);
+        }
+    }
+
     public static void createItem(Input input, Tracker tracker) {
         tracker.add(new Item(input.askStr("Enter name: ")));
     }
@@ -53,43 +70,12 @@ public class StartUI {
         }
     }
 
-    public void init(Input input, Tracker tracker) {
-        boolean run = true;
-        while (run) {
-            this.showMenu();
-            int select = input.askInt("Select:");
-            if (select == ADD) {
-                StartUI.createItem(input, tracker);
-            } else if (select == SHOW) {
-                StartUI.createAList(tracker);
-            } else if (select == EDIT) {
-                StartUI.replaceItem(input, tracker);
-            } else if (select == DEL) {
-                StartUI.deleteItem(input, tracker);
-            } else if (select == FINDID) {
-                StartUI.findItemById(input, tracker);
-            } else if (select == FINDNAME) {
-                StartUI.findItemByName(input, tracker);
-            } else if (select == EXIT) {
-                run = false;
-            }
-        }
-    }
-
-    private void showMenu() {
-        System.out.println("1. Add new item");
-        System.out.println("2. Show all items");
-        System.out.println("3. Edit item");
-        System.out.println("4. Delete item");
-        System.out.println("5. Find item by Id");
-        System.out.println("6. Find item by name");
-        System.out.println("7. Exit Program");
-
-    }
-
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        new StartUI().init(input, tracker);
+        UserAction[] actions = {new CreateAction(), new UpdateAction(),
+                new DeleteAction(), new CreateAction(),
+                new CreateAListAction(), new FindByIdAction(), new FindByNameAction()};
+        new StartUI().init(input, tracker, actions);
     }
 }
