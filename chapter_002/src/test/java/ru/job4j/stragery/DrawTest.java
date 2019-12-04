@@ -1,4 +1,4 @@
-package ru.job4j.tracker.stragery;
+package ru.job4j.stragery;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;

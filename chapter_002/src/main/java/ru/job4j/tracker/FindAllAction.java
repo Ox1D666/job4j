@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class CreateAListAction implements UserAction {
+public class FindAllAction implements UserAction {
     @Override
     public String name() {
         return "Create a list of items";

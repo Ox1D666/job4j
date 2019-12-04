@@ -1,5 +1,7 @@
 package ru.job4j.stragery;
 
+import java.util.StringJoiner;
+
 public class Paint {
     public void draw(Shape shape) {
         System.out.println(shape.draw());

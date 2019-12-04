@@ -1,4 +1,4 @@
-package ru.job4j.tracker.tracker;
+package ru.job4j.tracker;
 
 import org.junit.Test;
 import ru.job4j.tracker.*;
@@ -41,4 +41,6 @@ public class StartUITest {
         Item deleted = tracker.findById(item.getId());
         assertThat(deleted, is(tracker.findById(null)));
     }
+
+
 }
