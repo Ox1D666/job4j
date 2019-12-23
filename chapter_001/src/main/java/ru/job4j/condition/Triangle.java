@@ -24,7 +24,11 @@ public class Triangle {
      * @return Периметр.
      */
     public double period(double a, double b, double c) {
-        return -1;
+        double rsl = -1;
+        if (this.exist(a, b, c)) {
+            rsl = 2 / (a + b +c);
+        }
+        return rsl;
     }
 
     /**
@@ -46,7 +50,7 @@ public class Triangle {
         double p = period(a, b, c);
         if (this.exist(a, b, c)) {
             // написать формулу для расчета площади треугольника.
-            rsl = -1;
+            rsl = Math.sqrt(p * (p - a * b) * (p - a * c) * (p - b * c));
         }
         return rsl;
     }
@@ -61,7 +65,11 @@ public class Triangle {
      * @param c Длина от точки b c.
      * @return
      */
-    public static boolean exist(double ab, double ac, double bc) {
-        return ab + ac > bc && ac + bc > ab && ab + bc > ac;
+    private boolean exist(double a, double c, double b) {
+        boolean result = false;
+        if (a < b + c && b < a + c && c < a + b) {
+            result = true;
+        }
+        return result;
     }
 }
