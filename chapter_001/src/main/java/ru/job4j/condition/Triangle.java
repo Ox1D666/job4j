@@ -26,7 +26,7 @@ public class Triangle {
     public double period(double a, double b, double c) {
         double rsl = -1;
         if (this.exist(a, b, c)) {
-            rsl = 2 / (a + b +c);
+            rsl = 2 / (a + b + c);
         }
         return rsl;
     }
@@ -50,7 +50,7 @@ public class Triangle {
         double p = period(a, b, c);
         if (this.exist(a, b, c)) {
             // написать формулу для расчета площади треугольника.
-            rsl = Math.sqrt(p * (p - a * b) * (p - a * c) * (p - b * c));
+            rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         }
         return rsl;
     }

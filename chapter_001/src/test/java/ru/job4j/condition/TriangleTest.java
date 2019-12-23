@@ -7,13 +7,11 @@ import static org.junit.Assert.assertThat;
 public class TriangleTest {
     @Test
     public void whenExist() {
-//        Point ap = new Point(4, 0);
-//        Point bp = new Point(2, 0);
-//        Point cp = new Point(1, 0);
-//        Triangle triangle = new Triangle(ap, bp, cp);
-//        triangle.
-//        assertThat(triangle, is(true));
-////        boolean result = Triangle.exist(4.0, 2.0, 1.0);
-////        assertThat(result, is(false));
+        Point ap = new Point(1, 1);
+        Point bp = new Point(3, 4);
+        Point cp = new Point(5, 1);
+        Triangle triangle = new Triangle(ap, bp, cp);
+        double expect = triangle.area();
+        assertThat(expect, is(5.9999999999998));
     }
 }
