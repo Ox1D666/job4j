@@ -12,6 +12,6 @@ public class TriangleTest {
         Point cp = new Point(5, 1);
         Triangle triangle = new Triangle(ap, bp, cp);
         double expect = triangle.area();
-        assertThat(expect, is(5.9999999999998));
+        assertThat(expect, is(6.000000000000002));
     }
 }

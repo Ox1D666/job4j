@@ -26,7 +26,7 @@ public class Triangle {
     public double period(double a, double b, double c) {
         double rsl = -1;
         if (this.exist(a, b, c)) {
-            rsl = 2 / (a + b + c);
+            rsl = (a + b + c) / 2;
         }
         return rsl;
     }
