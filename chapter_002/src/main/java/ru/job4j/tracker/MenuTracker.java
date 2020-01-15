@@ -1,23 +1,26 @@
 package ru.job4j.tracker;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
-    private UserAction[] actions = new UserAction[7];
+//    private UserAction[] actions = new UserAction[7];
+    private List<UserAction> actions = new ArrayList<>();
     private static int work = 0;
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
-        actions[0] = new ShowAll(0, "Show task list");
-        actions[1] = new CreateItem(1, "New task");
-        actions[2] = new UpdateItem(2, "Change task info");
-        actions[3] = new DeleteItem(3, "Delete task");
-        actions[4] = new FindById(4, "Find task by ID");
-        actions[5] = new FindByName(5, "Find task by name");
-        actions[6] = new EndProgram(6, "End program");
+        this.actions.add(new ShowAll(0, "Show task list"));
+        this.actions.add(new CreateItem(1, "New task"));
+        this.actions.add(new UpdateItem(2, "Change task info"));
+        this.actions.add(new DeleteItem(3, "Delete task"));
+        this.actions.add(new FindById(4, "Find task by ID"));
+        this.actions.add(new FindByName(5, "Find task by name"));
+        this.actions.add(new EndProgram(6, "End program"));
     }
 
     private void showMenu() {
@@ -30,8 +33,8 @@ public class MenuTracker {
     public void init() {
         while (this.work == 0) {
             this.showMenu();
-            int select = input.askInt("Select:", actions.length);
-            this.actions[select].execute(input, tracker);
+            int select = input.askInt("Select:", actions.size());
+            this.actions.get(select).execute(input, tracker);
         }
     }
 
@@ -110,9 +113,9 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            Item[] items = tracker.findByName(input.askStr("Enter name selected item:"));
-            for (int i = 0; i < items.length; i++) {
-                System.out.println(items[i].getId() + " " + items[i].getName());
+            List<Item> items = tracker.findByName(input.askStr("Enter name selected item:"));
+            for (Item element: items) {
+                System.out.println(element.getId() + " " + element.getName());
             }
         }
     }
