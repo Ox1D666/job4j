@@ -15,21 +15,22 @@ public class Tracker {
 
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (Item element: this.items) {
+        int count = 0;
+        for (Item element : this.items) {
             if (element.getId().equals(id)) {
-                items.remove(element);
-                items.add(item);
+                items.set(count, item);
                 result = true;
                 item.setId(id);
                 break;
             }
+            count++;
         }
         return result;
     }
 
     public boolean delete(String id) {
         boolean result = false;
-        for (Item element: this.items) {
+        for (Item element : this.items) {
             if (element.getId().equals(id)) {
                 this.items.remove(element);
                 result = true;
@@ -50,7 +51,7 @@ public class Tracker {
 
     public List<Item> findByName(String key) {
         List<Item> tmp = new ArrayList<>();
-        for (Item element: this.items) {
+        for (Item element : this.items) {
             if (element.getName().equals(key)) {
                 tmp.add(element);
             }
@@ -60,7 +61,7 @@ public class Tracker {
 
     public Item findById(String id) {
         Item it = null;
-        for (Item element: items) {
+        for (Item element : items) {
             if (element.getId().equals(id)) {
                 it = element;
                 break;
