@@ -30,12 +30,14 @@ public class Tracker {
 
     public boolean delete(String id) {
         boolean result = false;
+        int count = 0;
         for (Item element : this.items) {
             if (element.getId().equals(id)) {
-                this.items.remove(element);
+                this.items.remove(count);
                 result = true;
                 break;
             }
+            count++;
         }
         return result;
     }
