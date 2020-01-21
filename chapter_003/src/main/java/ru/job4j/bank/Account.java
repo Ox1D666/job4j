@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Account {
     private String requisite;
-    private double balance;
+    private int balance;
 
-    public Account(String requisite, double balance) {
+    public Account(String requisite, int balance) {
         this.requisite = requisite;
         this.balance = balance;
     }
@@ -19,11 +19,11 @@ public class Account {
         this.requisite = requisite;
     }
 
-    public double getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 
