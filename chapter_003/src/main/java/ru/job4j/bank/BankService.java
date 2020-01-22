@@ -45,7 +45,15 @@ public class BankService {
                                  String destPassport, String destRequisite,
                                  int amount) {
         boolean rsl = false;
-
+        for (Account srcElement : users.get(findByPassport(srcPassport))) {
+            if (srcElement.getRequisite().contains(srcRequisite) && srcElement.getBalance() >= amount) {
+                for (Account destElement : users.get(findByPassport(destPassport))) {
+                    if (destElement.getRequisite().contains(destRequisite)) {
+                        destElement.setBalance(destElement.getBalance() + amount);
+                    }
+                }
+            }
+        }
         return rsl;
     }
 }
