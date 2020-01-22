@@ -14,12 +14,8 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        for (Map.Entry<User, List<Account>> element : users.entrySet()) {
-            if (element.getKey().getPassport().contains(passport)) {
-                if (!element.getValue().contains(account)) {
-                    element.getValue().add(account);
-                }
-            }
+        if (!users.get(findByPassport(passport)).contains(account)) {
+            users.get(findByPassport(passport)).add(account);
         }
     }
 
@@ -28,6 +24,7 @@ public class BankService {
         for (User element : users.keySet()) {
             if (element.getPassport().equals(passport)) {
                 user = element;
+                break;
             }
         }
         return user;
@@ -35,13 +32,10 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         Account account = null;
-        for (Map.Entry<User, List<Account>> element : users.entrySet()) {
-            if (element.getKey().getPassport().contains(passport)) {
-                for (Account value : element.getValue()) {
-                    if (value.getRequisite().equals(requisite)) {
-                        account = value;
-                    }
-                }
+        for (Account element : users.get(findByPassport(passport))) {
+            if (element.getRequisite().contains(requisite)) {
+                account = element;
+                break;
             }
         }
         return account;
@@ -51,11 +45,7 @@ public class BankService {
                                  String destPassport, String destRequisite,
                                  int amount) {
         boolean rsl = false;
-        BankService bankService = new BankService();
-        if (bankService.findByRequisite(srcPassport, srcRequisite).getBalance() >= amount) {
-            Account dest = bankService.findByRequisite(destPassport, destRequisite);
-            dest.setBalance(amount + dest.getBalance());
-        }
+
         return rsl;
     }
 }
