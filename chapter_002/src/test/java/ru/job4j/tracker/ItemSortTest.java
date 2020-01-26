@@ -32,7 +32,7 @@ public class ItemSortTest {
         it2.setId("2");
         list.add(it1);
         list.add(it2);
-        list.sort(Collections.reverseOrder());
+        Collections.sort(list, new SortItemById().reversed());
         assertThat(list.toString(), is("[b, 2, a, 1]"));
     }
     @Test
@@ -57,7 +57,7 @@ public class ItemSortTest {
         it2.setId("2");
         list.add(it1);
         list.add(it2);
-        Collections.sort(list, Collections.reverseOrder());
+        Collections.sort(list, new SortItemByName().reversed());
         assertThat(list.toString(), is("[e, 1, c, 2]"));
     }
 }
