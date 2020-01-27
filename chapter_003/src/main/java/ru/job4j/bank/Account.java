@@ -40,9 +40,7 @@ public class Account {
         return Objects.hash(requisite);
     }
 
-    boolean transfer(Account dest, int amount) {
-        boolean rsl = false;
+    void transfer(Account dest, int amount) {
         dest.setBalance(dest.getBalance() + amount);
-        return rsl;
     }
 }
