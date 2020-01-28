@@ -19,7 +19,7 @@ public class PassportOffice {
     public Citizen get(String passport) {
         Citizen citizen = null;
         for (String element: citizens.keySet()) {
-            if(element.equals(passport)) {
+            if (element.equals(passport)) {
                 citizen = citizens.get(element);
             }
         }

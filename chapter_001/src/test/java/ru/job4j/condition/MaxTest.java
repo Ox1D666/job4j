@@ -12,7 +12,7 @@ public class MaxTest {
     }
     @Test
     public void maxFourNum() {
-        int result = Max.max(8, 2,3,4);
+        int result = Max.max(8, 2, 3, 4);
         assertThat(result, is(8));
     }
 }

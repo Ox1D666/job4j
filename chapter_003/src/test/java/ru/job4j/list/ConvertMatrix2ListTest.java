@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 
 public class ConvertMatrix2ListTest {
     @Test
-    public void when2On2ArrayThenListe4 () {
+    public void when2On2ArrayThenListe4() {
         ConvertMatrix2List convertMatrix2List = new ConvertMatrix2List();
         int[][] input = {{1, 2}, {3, 4}};
         List<Integer> expect = Arrays.asList(1, 2, 3, 4);

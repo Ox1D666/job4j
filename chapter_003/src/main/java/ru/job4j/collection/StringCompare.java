@@ -15,9 +15,15 @@ public class StringCompare implements Comparator<String> {
                 break;
             }
             if (i == length - 1) {
-                if (o1.toCharArray().length < o2.toCharArray().length) rsl = -1;
-                if (o1.toCharArray().length > o2.toCharArray().length) rsl = 1;
-                if (o1.toCharArray().length == o2.toCharArray().length) rsl = 0;
+                if (o1.toCharArray().length < o2.toCharArray().length) {
+                    rsl = -1;
+                }
+                if (o1.toCharArray().length > o2.toCharArray().length) {
+                    rsl = 1;
+                }
+                if (o1.toCharArray().length == o2.toCharArray().length) {
+                    rsl = 0;
+                }
             }
         }
         return rsl;
