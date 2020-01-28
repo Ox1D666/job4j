@@ -6,7 +6,7 @@ public class StringCompare implements Comparator<String> {
     @Override
     public int compare(String o1, String o2) {
         int rsl = 0;
-        int length = Math.min(o1.toCharArray().length, o2.toCharArray().length);
+        int length = Math.min(o1.length(), o2.length());
         for (int i = 0; i < length; i++) {
             char first = o1.charAt(i);
             char second = o2.charAt(i);
@@ -15,13 +15,13 @@ public class StringCompare implements Comparator<String> {
                 break;
             }
             if (i == length - 1) {
-                if (o1.toCharArray().length < o2.toCharArray().length) {
+                if (o1.length() < o2.length()) {
                     rsl = -1;
                 }
-                if (o1.toCharArray().length > o2.toCharArray().length) {
+                if (o1.length() > o2.length()) {
                     rsl = 1;
                 }
-                if (o1.toCharArray().length == o2.toCharArray().length) {
+                if (o1.length() == o2.length()) {
                     rsl = 0;
                 }
             }

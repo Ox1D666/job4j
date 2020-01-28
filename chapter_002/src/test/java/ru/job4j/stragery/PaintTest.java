@@ -35,35 +35,17 @@ public class PaintTest {
 
     @Test
     public void whenDrawSquare() {
-        new Paint().draw(new Square());
-        assertThat(
-                this.out.toString(),
-                is(
-                        new StringBuilder()
-                                .append("++++")
-                                .append("+     +")
-                                .append("+     +")
-                                .append("++++")
-                                .append(System.lineSeparator())
-                                .toString()
-                )
-        );
+        Square sq = new Square();
+        assertThat(sq.draw(), is(new StringBuilder().append("+++\n").append("+ +\n").append("+++").toString()));
     }
-
     @Test
     public void whenDrawTriangle() {
-        new Paint().draw(new Triangle());
-        assertThat(
-                this.out.toString(),
-                is(
-                        new StringJoiner(
-                                System.lineSeparator(), "",
-                                System.lineSeparator())
-                                .add("  ^  ")
-                                .add(" ^ ^ ")
-                                .add("^^^^^")
-                                .toString()
-                )
-        );
+        assertThat(new Triangle().draw(), is(new StringJoiner(
+                System.lineSeparator(), "",
+                System.lineSeparator())
+                .add("  ^  ")
+                .add(" ^ ^ ")
+                .add("^^^^^")
+                .toString()));
     }
 }
