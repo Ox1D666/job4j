@@ -2,11 +2,10 @@ package ru.job4j.collection;
 
 import org.junit.Test;
 
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -25,5 +24,35 @@ public class UserTest {
     public void whenComparePertVSIvan() {
         int rsl = new User("Petr", 32).compareTo(new User("Ivan", 31));
         assertThat(rsl, greaterThan(0));
+    }
+    @Test
+    public void whenCompareByNameUp() {
+        Comparator<User> users = new UserDescByName();
+        int rsl = users.compare(new User("Fix bug", 1), new User("Hix bug", 4));
+        assertThat(rsl, lessThan(0));
+    }
+    @Test
+    public void whenCompareByNameDown() {
+        Comparator<User> users = new UserDescByName();
+        int rsl = users.compare(new User("Hix bug", 1), new User("Fix bug", 4));
+        assertThat(rsl, greaterThan(0));
+    }
+    @Test
+    public void whenCompareByAgeUp() {
+        Comparator<User> users = new UserDescByAge();
+        int rsl = users.compare(new User("Hix bug", 1), new User("Fix bug", 4));
+        assertThat(rsl, lessThan(0));
+    }
+    @Test
+    public void whenCompareByAgeDown() {
+        Comparator<User> users = new UserDescByAge();
+        int rsl = users.compare(new User("Hix bug", 4), new User("Fix bug", 1));
+        assertThat(rsl, greaterThan(0));
+    }
+    @Test
+    public void whenCompatorByNameAndAge() {
+        Comparator<User> users = new UserDescByName().thenComparing(new UserDescByAge());
+        int rsl = users.compare(new User("Fix bug", 1), new User("Fix bug", 4));
+        assertThat(rsl, lessThan(0));
     }
 }

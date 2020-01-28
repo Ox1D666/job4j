@@ -11,6 +11,22 @@ public class User implements Comparable<User> {
         this.age = age;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public int compareTo(User o) {
         int rsl = this.name.compareTo(o.name);
@@ -32,5 +48,11 @@ public class User implements Comparable<User> {
     @Override
     public int hashCode() {
         return Objects.hash(name, age);
+    }
+
+    @Override
+    public String toString() {
+        return name +
+                ", age = " + age;
     }
 }
