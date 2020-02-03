@@ -16,8 +16,6 @@ public class UniqueText {
                 break;
             }
         }
-        // for-each origin -> new HashSet.
-        // for-each text -> hashSet.contains
         return rsl;
     }
 }
