@@ -14,19 +14,10 @@ public class StringCompare implements Comparator<String> {
                 rsl = Character.compare(first, second);
                 break;
             }
-            if (i == length - 1) {
-                if (o1.length() < o2.length()) {
-                    rsl = -1;
-                }
-                if (o1.length() > o2.length()) {
-                    rsl = 1;
-                }
-                if (o1.length() == o2.length()) {
-                    rsl = 0;
-                }
-            }
         }
-        System.out.println(rsl);
+        if (rsl == 0) {
+            rsl = o1.length() - o2.length();
+        }
         return rsl;
     }
 }
