@@ -26,6 +26,7 @@ public class StringCompare implements Comparator<String> {
                 }
             }
         }
+        System.out.println(rsl);
         return rsl;
     }
 }
