@@ -10,7 +10,9 @@ public class PriorityQueueTest {
     public void whenHigherPriority() {
         PriorityQueue queue = new PriorityQueue();
         queue.put(new Task("low", 5));
+        queue.put(new Task("middle", 2));
         queue.put(new Task("urgent", 1));
+        queue.put(new Task("middle", 4));
         queue.put(new Task("middle", 3));
         Task rsl = queue.take();
         assertThat(rsl.getDescription(), is("urgent"));
@@ -20,7 +22,9 @@ public class PriorityQueueTest {
         PriorityQueue queue = new PriorityQueue();
         queue.put(new Task("middle", 3));
         queue.put(new Task("urgent", 1));
+        queue.put(new Task("middle", 4));
         queue.put(new Task("low", 5));
+        queue.put(new Task("middle", 2));
         Task rsl = queue.take();
         assertThat(rsl.getDescription(), is("urgent"));
     }
@@ -30,6 +34,8 @@ public class PriorityQueueTest {
         queue.put(new Task("urgent", 1));
         queue.put(new Task("low", 5));
         queue.put(new Task("middle", 3));
+        queue.put(new Task("middle", 4));
+        queue.put(new Task("middle", 2));
         Task rsl = queue.take();
         assertThat(rsl.getDescription(), is("urgent"));
     }
@@ -37,8 +43,43 @@ public class PriorityQueueTest {
     public void whenHigherPriority4() {
         PriorityQueue queue = new PriorityQueue();
         queue.put(new Task("urgent", 1));
+        queue.put(new Task("middle", 2));
         queue.put(new Task("middle", 3));
+        queue.put(new Task("middle", 4));
         queue.put(new Task("low", 5));
+        Task rsl = queue.take();
+        assertThat(rsl.getDescription(), is("urgent"));
+    }
+    @Test
+    public void whenHigherPriority5() {
+        PriorityQueue queue = new PriorityQueue();
+        queue.put(new Task("middle", 2));
+        queue.put(new Task("middle", 3));
+        queue.put(new Task("middle", 5));
+        queue.put(new Task("urgent", 1));
+        queue.put(new Task("low", 4));
+        Task rsl = queue.take();
+        assertThat(rsl.getDescription(), is("urgent"));
+    }
+    @Test
+    public void whenHigherPriority6() {
+        PriorityQueue queue = new PriorityQueue();
+        queue.put(new Task("middle", 4));
+        queue.put(new Task("low", 5));
+        queue.put(new Task("middle", 2));
+        queue.put(new Task("middle", 3));
+        queue.put(new Task("urgent", 1));
+        Task rsl = queue.take();
+        assertThat(rsl.getDescription(), is("urgent"));
+    }
+    @Test
+    public void whenHigherPriority7() {
+        PriorityQueue queue = new PriorityQueue();
+        queue.put(new Task("middle", 3));
+        queue.put(new Task("middle", 4));
+        queue.put(new Task("low", 5));
+        queue.put(new Task("middle", 2));
+        queue.put(new Task("urgent", 1));
         Task rsl = queue.take();
         assertThat(rsl.getDescription(), is("urgent"));
     }
