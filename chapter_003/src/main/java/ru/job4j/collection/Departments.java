@@ -25,8 +25,6 @@ public class Departments {
     }
 
     public static void sortDesc(List<String> orgs) {
-        DepDescComp sort = new DepDescComp();
-
-//        orgs.sort(Collections.reverseOrder());
+        orgs.sort(new DepDescComp());
     }
 }
