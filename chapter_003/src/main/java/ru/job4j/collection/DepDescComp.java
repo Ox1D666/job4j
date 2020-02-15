@@ -12,6 +12,9 @@ public class DepDescComp implements Comparator<String> {
                 result = -1;
             }
         }
+        if (result == 0) {
+            result  = o1.length() - o2.length();
+        }
         return result;
     }
 }
