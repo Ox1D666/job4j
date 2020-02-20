@@ -3,17 +3,19 @@ package ru.job4j.tracker;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
-//    private UserAction[] actions = new UserAction[7];
     private List<UserAction> actions = new ArrayList<>();
+    private final Consumer<String> output;
     private static int work = 0;
 
-    public MenuTracker(Input input, Tracker tracker) {
+    public MenuTracker(Input input, Tracker tracker, Consumer<String> output) {
         this.input = input;
         this.tracker = tracker;
+        this.output = output;
         this.actions.add(new ShowAll(0, "Show task list"));
         this.actions.add(new CreateItem(1, "New task"));
         this.actions.add(new UpdateItem(2, "Change task info"));
@@ -24,9 +26,9 @@ public class MenuTracker {
     }
 
     private void showMenu() {
-        System.out.println("Menu:");
+        output.accept("Menu:");
         for (UserAction action : this.actions) {
-            System.out.println(action.info());
+            output.accept(action.info());
         }
     }
 
@@ -46,7 +48,7 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             for (Item item : tracker.findAll()) {
-                System.out.println(String.format("Name: %s | Id: %s",
+                output.accept(String.format("Name: %s | Id: %s",
                         item.getName(), item.getId()));
             }
         }
@@ -70,9 +72,9 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             if (tracker.replace(input.askStr("Enter id selected item:"), new Item(input.askStr("Enter new name")))) {
-                System.out.println("success");
+                output.accept("success");
             } else {
-                System.out.println("false");
+                output.accept("false");
             }
         }
     }
@@ -84,9 +86,9 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             if (tracker.delete(input.askStr("Enter id selected item:"))) {
-                System.out.println("success");
+                output.accept("success");
             } else {
-                System.out.println("false");
+                output.accept("false");
             }
         }
     }
@@ -100,9 +102,9 @@ public class MenuTracker {
             String id = input.askStr("Enter id selected item:");
             Item item = tracker.findById(id);
             if (item != null) {
-                System.out.println(item.getId() + " " + item.getName());
+                output.accept(item.getId() + " " + item.getName());
             } else {
-                System.out.println("item with entered id not found");
+                output.accept("item with entered id not found");
             }
         }
     }
@@ -115,7 +117,7 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             List<Item> items = tracker.findByName(input.askStr("Enter name selected item:"));
             for (Item element: items) {
-                System.out.println(element.getId() + " " + element.getName());
+                output.accept(element.getId() + " " + element.getName());
             }
         }
     }
