@@ -21,14 +21,14 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        return users.keySet().stream().filter(e -> e.getPassport().equals(passport)).findFirst().get();
+        return users.keySet().stream().filter(e -> e.getPassport().equals(passport)).findFirst().orElse(null);
     }
 
     public Account findByRequisite(String passport, String requisite) {
         Account account = null;
         User user = findByPassport(passport);
         if (user != null) {
-            account = users.get(user).stream().filter(element -> element.getRequisite().equals(requisite)).findFirst().get();
+            account = users.get(user).stream().filter(element -> element.getRequisite().equals(requisite)).findFirst().orElse(null);
         }
         return account;
     }
