@@ -11,29 +11,30 @@ import static org.junit.Assert.assertThat;
 public class DepartmentsTest {
     @Test
     public void whenMissed() {
-        List<String> input = Arrays.asList("K1/SK1",
+        assertThat(Departments.fillGaps(
+                List.of("K1/SK1",
                 "K1/SK2",
                 "K1/SK1/SSK1",
                 "K1/SK1/SSK2",
                 "K2",
                 "K2/SK1/SSK1",
-                "K2/SK1/SSK2");
-        List<String> expect = Arrays.asList("K1",
-                "K1/SK1",
-                "K1/SK1/SSK1",
-                "K1/SK1/SSK2",
-                "K1/SK2",
-                "K2",
-                "K2/SK1",
-                "K2/SK1/SSK1",
-                "K2/SK1/SSK2");
-        List<String> result = Departments.fillGaps(input);
-        assertThat(result, is(expect));
+                "K2/SK1/SSK2")),
+                is(
+                        List.of("K1",
+                        "K1/SK1",
+                        "K1/SK1/SSK1",
+                        "K1/SK1/SSK2",
+                        "K1/SK2",
+                        "K2",
+                        "K2/SK1",
+                        "K2/SK1/SSK1",
+                        "K2/SK1/SSK2")));
     }
 
     @Test
     public void whenNonChange() {
-        List<String> input = Arrays.asList("K1",
+        assertThat(Departments.fillGaps(
+                List.of("K1",
                 "K1/SK1",
                 "K1/SK1/SSK1",
                 "K1/SK1/SSK2",
@@ -41,18 +42,17 @@ public class DepartmentsTest {
                 "K2",
                 "K2/SK1",
                 "K2/SK1/SSK1",
-                "K2/SK1/SSK2");
-        List<String> expect = Arrays.asList("K1",
-                "K1/SK1",
-                "K1/SK1/SSK1",
-                "K1/SK1/SSK2",
-                "K1/SK2",
-                "K2",
-                "K2/SK1",
-                "K2/SK1/SSK1",
-                "K2/SK1/SSK2");
-        List<String> result = Departments.fillGaps(input);
-        assertThat(result, is(expect));
+                "K2/SK1/SSK2")),
+                is(
+                        List.of("K1",
+                        "K1/SK1",
+                        "K1/SK1/SSK1",
+                        "K1/SK1/SSK2",
+                        "K1/SK2",
+                        "K2",
+                        "K2/SK1",
+                        "K2/SK1/SSK1",
+                        "K2/SK1/SSK2")));
     }
     @Test
     public void revertSort() {

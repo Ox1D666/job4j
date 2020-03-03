@@ -1,24 +1,16 @@
 package ru.job4j.collection;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class UsageMap {
     public static void main(String[] args) {
-        HashMap<String, String> map = new HashMap<>();
-        map.put("kirill.coldline@gmail.com", "Romanov Kirill");
-        map.put("parsentev@yandex.ru", "Petr Arsentev");
+        Map<String, String> map = Map.of("kirill.coldline@gmail.com", "Romanov Kirill", "parsentev@yandex.ru", "Petr Arsentev");
 
-        for (String key : map.keySet()) {
-            String value = map.get(key);
-            System.out.println(key + " = " + value);
-        }
+        map.forEach((k, v) -> System.out.println(String.format("%s, %s", k, v)));
 
-        for (String key : map.keySet()) {
-            System.out.println(key);
-        }
+        map.forEach((k, v) -> System.out.println(String.format("%s", k)));
 
-        for (String value : map.values()) {
-            System.out.println(value);
-        }
+        map.forEach((k, v) -> System.out.println(String.format("%s", v)));
     }
 }

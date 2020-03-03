@@ -11,10 +11,7 @@ import static org.junit.Assert.assertThat;
 public class ConvertMatrix2ListTest {
     @Test
     public void when2On2ArrayThenListe4() {
-        ConvertMatrix2List convertMatrix2List = new ConvertMatrix2List();
-        int[][] input = {{1, 2}, {3, 4}};
-        List<Integer> expect = Arrays.asList(1, 2, 3, 4);
-        List<Integer> result = convertMatrix2List.toList(input);
-        assertThat(result, is(expect));
+        assertThat(new ConvertMatrix2List().toList(new int[][] {{1, 2}, {3, 4}}),
+                is(List.of(1, 2, 3, 4)));
     }
 }

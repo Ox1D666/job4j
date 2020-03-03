@@ -12,5 +12,6 @@ public class ConvertList {
             }
         }
         return rsl;
+//        return list.stream().
     }
 }

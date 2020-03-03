@@ -1,15 +1,11 @@
 package ru.job4j.collection;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UsageArrayList {
     public static void main(String[] args) {
-        ArrayList<String> names = new ArrayList<>();
-        names.add("Petr");
-        names.add("Petr1");
-        names.add("Petr2");
-        for (String value: names) {
-            System.out.println(value);
-        }
+        List<String> names = List.of("Petr", "Petr1", "Petr2");
+        names.forEach(System.out::print);
     }
 }
