@@ -11,6 +11,6 @@ public class School {
         return students.stream().filter(predict).collect(Collectors.toList());
     }
     public List<Student> levelOf(List<Student> students, int bound) {
-        return students.stream().sorted().flatMap(Stream::ofNullable).takeWhile(x -> x.getScore() > bound).collect(Collectors.toList());
+        return students.stream().flatMap(Stream::ofNullable).sorted().takeWhile(x -> x.getScore() > bound).collect(Collectors.toList());
     }
 }
