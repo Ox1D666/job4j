@@ -25,10 +25,10 @@ public class SearchAtt {
         return rsl;
     }
 
-    private static List<Attachment> filter(List<Attachment> list, Predicate<Attachment> predicate){
+    private static List<Attachment> filter(List<Attachment> list, Predicate<Attachment> predicate) {
         List<Attachment> rsl = new ArrayList<>();
         for (Attachment att : list) {
-            if(predicate.test(att)) {
+            if (predicate.test(att)) {
                 rsl.add(att);
             }
         }

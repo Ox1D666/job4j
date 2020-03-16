@@ -13,6 +13,6 @@ public class MatrixConverter {
     }
 
     public static void main(String[] args) {
-        System.out.println(convertToList(new Integer[][]{{1, 2}, {3 , 4}}));
+        System.out.println(convertToList(new Integer[][]{{1, 2}, {3, 4}}));
     }
 }
